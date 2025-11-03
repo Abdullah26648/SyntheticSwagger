@@ -1,8 +1,6 @@
 FROM stoplight/prism:4
-
 COPY openapi.yaml /tmp/openapi.yaml
-
-ENTRYPOINT prism mock /tmp/openapi.yaml -h 0.0.0.0 -p ${PORT:-4000}
+CMD ["sh", "-c", "/usr/local/bin/prism mock /tmp/openapi.yaml -h 0.0.0.0 -p $PORT"]
 
 
 
